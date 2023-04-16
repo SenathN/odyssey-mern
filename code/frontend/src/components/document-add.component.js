@@ -120,7 +120,7 @@ export class CreateDocument extends Component {
                                             <div className="grid grid-cols-2 gap-4 form-group">
 
                                                 <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Document Name : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 '>Document Name : </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -130,7 +130,7 @@ export class CreateDocument extends Component {
                                                     /><p />
                                                 </div>
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Category : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 '>Category : </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -142,7 +142,7 @@ export class CreateDocument extends Component {
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
                                                 <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Created Date : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 ' >Created Date : </label>
                                                     <div>
                                                         <DatePicker
                                                             className='m-2'
@@ -152,7 +152,7 @@ export class CreateDocument extends Component {
                                                     </div>
                                                 </div><p />
                                                 <div className="form-group">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>description : </label>
+                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 '>description : </label>
                                                     <input textarea="text"
                                                         required
                                                         placeholder=''
@@ -164,7 +164,7 @@ export class CreateDocument extends Component {
                                             </div>
 
                                             <div className="form-group">
-                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Created Employee Name : </label>
+                                                <label className='block mb-2 text-lg font-medium text-gray-900 '>Created Employee Name : </label>
                                                 <textarea type="text"
                                                     required
                                                     placeholder=''
@@ -175,7 +175,7 @@ export class CreateDocument extends Component {
                                             </div>
 
                                             <div className="form-group">
-                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Employee Title : </label>
+                                                <label className='block mb-2 text-lg font-medium text-gray-900 '>Employee Title : </label>
                                                 <textarea type="text"
                                                     required
                                                     placeholder=''
@@ -186,7 +186,7 @@ export class CreateDocument extends Component {
                                             </div>
 
                                             {/* <div className="form-group ">
-                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' for="grid-state">Department : </label>
+                                                <label className='block mb-2 text-lg font-medium text-gray-900 ' for="grid-state">Department : </label>
                                                 <select type="text"
                                                     required
                                                     className="form-control"

@@ -1,34 +1,37 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import * as Swal from "sweetalert2";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-export class CreateGuide extends Component {
+export class CreateSpaceProvider extends Component {
     constructor(props) {
         super(props);
-        this.onChangeGuideName = this.onChangeGuideName.bind(this);
+        this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangeLangType = this.onChangeLangType.bind(this);
-        this.onChangeServiceType = this.onChangeServiceType.bind(this);
-        this.onChangeMobileNumber = this.onChangeMobileNumber.bind(this);
+        this.onChangeCompany = this.onChangeCompany.bind(this);
+        this.onChangeTelNo = this.onChangeTelNo.bind(this);
         this.onChangeAddress = this.onChangeAddress.bind(this);
         this.onChangeNIC = this.onChangeNIC.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.state = {
-            guideName: '',
+            username: '',
+            nic: '',
             email: '',
             langType: '',
-            serviceType: '',
-            mobileNumber: '',
-            address: '',
-            nic: ''
+            company: '',
+            telNo: '',
+            password: '',
+            address: ''
         }
     }
 
-    onChangeGuideName(e) {
+    onChangeUsername(e) {
         this.setState({
-            guideName: e.target.value
+            username: e.target.value
         });
     }
     onChangeEmail(e) {
@@ -41,21 +44,21 @@ export class CreateGuide extends Component {
             langType: e.target.value
         });
     }
-    onChangeServiceType(e) {
+    onChangeCompany(e) {
         this.setState({
-            serviceType: e.target.value
+            company: e.target.value
         });
     }
-    onChangeMobileNumber(e) {
+    onChangeTelNo(e) {
         this.setState({
-            mobileNumber: e.target.value
+            telNo: e.target.value
         });
     }
     onChangeAddress(e) {
 
         this.setState({
             address: e.target.value,
-        });  
+        });
 
     }
 
@@ -65,21 +68,28 @@ export class CreateGuide extends Component {
         });
     }
 
-    
+    onChangePassword(e) {
+        this.setState({
+            password: e.target.value
+        });
+    }
+
+
 
     onSubmit(e) {
         e.preventDefault();
-        const guide = {
-            guideName: this.state.guideName,
+        const spaceProvider = {
+            username: this.state.username,
             email: this.state.email,
             langType: this.state.langType,
-            serviceType: this.state.serviceType,
-            mobileNumber: this.state.mobileNumber,
+            company: this.state.company,
+            telNo: this.state.telNo,
             address: this.state.address,
             nic: this.state.nic,
+            password: this.state.password
         }
-        console.log(guide);
-        axios.post('http://localhost:5000/api/guide/add', guide)
+        console.log(spaceProvider);
+        axios.post('http://localhost:5000/api/spaceProvider/add', spaceProvider)
             .then(res => {
                 console.log(res);
                 if (res.status === 200) {
@@ -87,7 +97,7 @@ export class CreateGuide extends Component {
                     Swal.fire({
                         icon: 'success',
                         title: 'Successful',
-                        text: 'Guide has been created!!',
+                        text: 'SpaceProvider has been created!!',
                         background: '#fff',
                         confirmButtonColor: '#133EFA',
                         iconColor: '#60e004'
@@ -107,11 +117,11 @@ export class CreateGuide extends Component {
 
     clearData = () => {
         this.setState({
-            guideName: '',
+            username: '',
             email: '',
             langType: '',
-            serviceType: '',
-            mobileNumber: '',
+            company: '',
+            telNo: '',
             address: '',
             nic: ''
         })
@@ -124,23 +134,23 @@ export class CreateGuide extends Component {
                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                         <div className='items-center overflow-hidden'>
                             <div className=''>
-                                <div class="grid grid-cols-1 gap-4 content-start pt-5 px-20">
+                                <div className="grid grid-cols-1 gap-4 content-start pt-5 px-20">
                                     <form className='px-12 py-12 border-2 rounded-lg shadow-md bg-gray-50' onSubmit={this.onSubmit}>
-                                        <div class="">
+                                        <div className="">
                                             <p className='text-4xl font-semibold text-black uppercase drop-shadow-lg'>
-                                                Add a Guide
+                                                Add a Space Provider
                                             </p>
                                             <div className="grid grid-cols-2 gap-4 form-group">
 
-                                                <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Guide Name </label>
+                                                <div className="">
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>SpaceProvider Name </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
                                                         className="form-control "
-                                                        value={this.state.guideName}
-                                                        onChange={this.onChangeGuideName}
-                                                    /><p />
+                                                        value={this.state.username}
+                                                        onChange={this.onChangeUsername}
+                                                    /><br />
                                                 </div>
                                                 <div className="form-group">
                                                     <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Email</label>
@@ -150,12 +160,12 @@ export class CreateGuide extends Component {
                                                         className="form-control"
                                                         value={this.state.email}
                                                         onChange={this.onChangeEmail}
-                                                    /><p />
+                                                    /><br />
                                                 </div>
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
-                                                <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >Language Type</label>
+                                                <div className="">
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >Language</label>
                                                     <div>
                                                         <input type="text"
                                                             required
@@ -163,18 +173,18 @@ export class CreateGuide extends Component {
                                                             className="form-control"
                                                             value={this.state.langType}
                                                             onChange={this.onChangeLangType}
-                                                        /><p />
+                                                        /><br />
                                                     </div>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Service Type</label>
+                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Company/Business name</label>
                                                     <input textarea="text"
                                                         required
                                                         placeholder=''
                                                         className="form-control"
-                                                        value={this.state.serviceType}
-                                                        onChange={this.onChangeServiceType}
-                                                    /><p />
+                                                        value={this.state.company}
+                                                        onChange={this.onChangeCompany}
+                                                    /><br />
                                                 </div>
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
@@ -184,22 +194,22 @@ export class CreateGuide extends Component {
                                                         required
                                                         placeholder=''
                                                         className="form-control"
-                                                        value={this.state.mobileNumber}
-                                                        onChange={this.onChangeMobileNumber}
-                                                    /><p />
+                                                        value={this.state.telNo}
+                                                        onChange={this.onChangeTelNo}
+                                                    /><br />
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
-                                                    <div class="">
+                                                    <div className="">
                                                         <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Address</label>
                                                         <input textarea="text"
-                                                        required
-                                                        placeholder=''
-                                                        className="form-control"
-                                                        value={this.state.address}
-                                                        onChange={this.onChangeAddress}
-                                                    /><p />
+                                                            required
+                                                            placeholder=''
+                                                            className="form-control"
+                                                            value={this.state.address}
+                                                            onChange={this.onChangeAddress}
+                                                        /><br />
                                                     </div>
-                                                    <div class="">
+                                                    <div className="">
                                                         <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>NIC</label>
                                                         <input textarea="text"
                                                             required
@@ -210,27 +220,25 @@ export class CreateGuide extends Component {
                                                         />
                                                     </div>
 
-                                                </div><p />
+                                                </div><br />
+                                                <div className="form-group">
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Password</label>
+                                                    <input textarea="text"
+                                                        required
+                                                        placeholder=''
+                                                        className="form-control"
+                                                        value={this.state.password}
+                                                        onChange={this.onChangePassword}
+                                                    /><br />
+                                                </div>
                                             </div>
-
-                                            {/* <div className="form-group ">
-                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' for="grid-state">Department : </label>
-                                                <select type="text"
-                                                    required
-                                                    className="form-control"
-                                                    value={this.state.department}
-                                                    onChange={this.onChangeempdepartment}
-                                                >
-                                                    <option>Department 1</option>
-                                                    <option>Department 2</option>
-                                                    <option>Department 3</option>
-                                                    <option>Department 4</option>
-                                                    <option>Department 5</option>
-                                                </select><p />
-                                            </div> */}
-
                                             <div className="text-center align-middle form-group">
-                                                <input className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' type="submit" value="Add Guide" />
+                                                <input className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' type="submit" value="Add Space Provider" />
+                                                <Link to={'/spaceProvider'}>
+                                                    <button className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'>
+                                                        Cancel
+                                                    </button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </form>

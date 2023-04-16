@@ -18,26 +18,20 @@ const Inquiry = props => (
         <td className='px-6 py-4'>
             <div class="flex justify-center">
                 <div class="">
-                    <button className='inline-flex items-center px-4 py-2 ml-1 text-sm font-medium text-white duration-100 bg-indigo-500 rounded-md hover:bg-blue-200' onClick={() => { props.gotoUpdateInquiry(props.inquiry._id) }}>
+                    <button className='inline-flex items-center p-2 ml-1 text-sm font-medium text-white duration-100 bg-indigo-500 rounded-md hover:bg-blue-200' onClick={() => { props.gotoUpdateInquiry(props.inquiry._id) }}>
                         <div class="">
                             <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round " stroke-width="2" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"></path>
                             </svg>
                         </div>
-                        <div class="">
-                            Update
-                        </div>
                     </button>
                 </div>
                 <div class="">
-                    <button className='inline-flex items-center px-4 py-2 ml-1 text-sm font-medium text-white duration-100 bg-red-500 rounded-md hover:bg-red-200' onClick={() => { props.deleteInquiry(props.inquiry._id) }}>
+                    <button className='inline-flex items-center p-2 ml-1 text-sm font-medium text-white duration-100 bg-red-500 rounded-md hover:bg-red-200' onClick={() => { props.deleteInquiry(props.inquiry._id) }}>
                         <div class="">
                             <svg class="h-5 w-5 mr-2 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg>
-                        </div>
-                        <div class="">
-                            Delete
                         </div>
                     </button>
                 </div>
@@ -115,7 +109,8 @@ export class AdInquiryList extends Component {
     searchInquiryList() {
         return this.state.inquiry.map((currentinquiry) => {
             if (
-                this.state.searchInquiry === currentinquiry.type
+                // this.state.searchInquiry === currentinquiry.type
+                this.state.searchInquiry === currentinquiry.type || currentinquiry.type.toLowerCase().includes(this.state.searchInquiry.toLowerCase())
             ) {
                 return (
                     <tr className='text-lg bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
@@ -275,7 +270,7 @@ export class AdInquiryList extends Component {
                                 </table>
                             </div>
                             <div className='relative grid content-start grid-cols-1 gap-4 overflow-x-auto shadow-md sm:rounded-lg'>
-                                <table className='w-full h-full overflow-y-auto text-sm text-left text-gray-500 table-fixed dark:text-gray-400' >
+                                <table className='w-full h-full overflow-y-auto text-sm text-left text-gray-500 table-fixed dark:text-black' >
                                     <thead className='p-5 text-xs text-gray-700 uppercase border bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
                                         <tr>
                                             <th className="p-2 border-black tbhead ">Customer Name</th>

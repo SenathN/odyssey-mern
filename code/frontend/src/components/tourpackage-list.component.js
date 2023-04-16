@@ -6,7 +6,7 @@ import 'jspdf-autotable';
 import { Modal } from "react-bootstrap";
 import EditTour from "./tourpackage-edit.component";
 
-const Tour = props => (
+export const Tour = props => (
     <tr className='text-lg bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
         <div class="justify-between grid grid-cols-4 gap-2 p-5 m-5 shadow-xl shadow-slate-300 hover:shadow-lg hover:shadow-cyan-500-100 hover:duration-300 rounded-lg max-w-sm lg:max-w-full lg:flex">
             <div class="col-span-3">

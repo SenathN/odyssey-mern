@@ -135,7 +135,7 @@ export default class EditDocument extends Component {
                                             <p className='text-4xl font-semibold text-black uppercase billheading'>Update Document Info</p>
                                             <div class="grid grid-cols-2 gap-4 form-group">
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Document Name : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 '>Document Name : </label>
                                                     <input type="text"
                                                         // required
                                                         className="form-control"
@@ -145,7 +145,7 @@ export default class EditDocument extends Component {
                                                     /><p />
                                                 </div>
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Category : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 ' >Category : </label>
                                                     <input type="text"
                                                         required
                                                         className="form-control"
@@ -156,7 +156,7 @@ export default class EditDocument extends Component {
                                             </div>
                                             <div class="grid grid-cols-2 gap-4 form-group">
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Created Employee Name: </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 '>Created Employee Name: </label>
                                                     <input type="text"
                                                         required
                                                         className="form-control"
@@ -166,7 +166,7 @@ export default class EditDocument extends Component {
                                                     <p />
                                                 </div>
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Employee Title : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 '>Employee Title : </label>
                                                     <input type="text"
                                                         required
                                                         className="form-control"
@@ -177,7 +177,7 @@ export default class EditDocument extends Component {
                                             </div>
 
                                             <div className="form-group">
-                                                <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Description : </label>
+                                                <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 '>Description : </label>
                                                 <textarea type="text"
                                                     required
                                                     className="form-control"
@@ -187,7 +187,7 @@ export default class EditDocument extends Component {
                                             </div>
 
                                             <div className="form-group">
-                                                <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Date : </label>
+                                                <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 '>Date : </label>
                                                 <div>
                                                     <DatePicker
                                                         selected={this.state.date}
@@ -197,7 +197,7 @@ export default class EditDocument extends Component {
                                             </div>
 
                                             {/* <div className="form-group ">
-                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' for="grid-state">Department : </label>
+                                                <label className='block mb-2 text-lg font-medium text-gray-900 ' for="grid-state">Department : </label>
                                                 <select type="text"
                                                     required
                                                     className="form-control"

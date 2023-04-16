@@ -82,7 +82,9 @@ export class GuidePackDetails extends Component {
     searchGuideList() {
         return this.state.guide.map((currentguide) => {
             if (
-                this.state.searchGuidePack === currentguide.guideName
+                // this.state.searchGuidePack === currentguide.guideName
+                this.state.searchInquiry === currentinquiry.type || currentinquiry.type.toLowerCase().includes(this.state.searchInquiry.toLowerCase())
+
             ) {
                 return (
                     <div class="">
