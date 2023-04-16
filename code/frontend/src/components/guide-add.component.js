@@ -133,7 +133,7 @@ export class CreateGuide extends Component {
                                             <div className="grid grid-cols-2 gap-4 form-group">
 
                                                 <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Guide Name </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Guide Name </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -143,7 +143,7 @@ export class CreateGuide extends Component {
                                                     /><p />
                                                 </div>
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Email</label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Email</label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -155,7 +155,7 @@ export class CreateGuide extends Component {
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
                                                 <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Language Type</label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >Language Type</label>
                                                     <div>
                                                         <input type="text"
                                                             required
@@ -167,7 +167,7 @@ export class CreateGuide extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Service Type</label>
+                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Service Type</label>
                                                     <input textarea="text"
                                                         required
                                                         placeholder=''
@@ -179,7 +179,7 @@ export class CreateGuide extends Component {
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Mobile Number</label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Mobile Number</label>
                                                     <input textarea="text"
                                                         required
                                                         placeholder=''
@@ -190,7 +190,7 @@ export class CreateGuide extends Component {
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Address</label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Address</label>
                                                         <input textarea="text"
                                                         required
                                                         placeholder=''
@@ -200,7 +200,7 @@ export class CreateGuide extends Component {
                                                     /><p />
                                                     </div>
                                                     <div class="">
-                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>NIC</label>
+                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>NIC</label>
                                                         <input textarea="text"
                                                             required
                                                             placeholder=''
@@ -214,7 +214,7 @@ export class CreateGuide extends Component {
                                             </div>
 
                                             {/* <div className="form-group ">
-                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' for="grid-state">Department : </label>
+                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' for="grid-state">Department : </label>
                                                 <select type="text"
                                                     required
                                                     className="form-control"

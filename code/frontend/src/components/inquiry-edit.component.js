@@ -147,7 +147,7 @@ export default class EditInquiry extends Component {
                                                 <div className="grid grid-cols-2 gap-4 form-group">
 
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Your Name : </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Your Name : </label>
                                                         <input type="text"
                                                             required
                                                             placeholder=''
@@ -157,7 +157,7 @@ export default class EditInquiry extends Component {
                                                         /><p />
                                                     </div>
                                                     <div className="form-group">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Type : </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Type : </label>
                                                         <select type="text"
                                                             required
                                                             placeholder=''
@@ -175,7 +175,7 @@ export default class EditInquiry extends Component {
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Description : </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >Description : </label>
                                                         <div>
                                                             <textarea type="text"
                                                                 required
@@ -187,7 +187,7 @@ export default class EditInquiry extends Component {
                                                         </div>
                                                     </div>
                                                     <div className="form-group">
-                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Contact Number: </label>
+                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Contact Number: </label>
                                                         <input type="text"
                                                             required
                                                             placeholder=''
@@ -200,7 +200,7 @@ export default class EditInquiry extends Component {
                                                 <div className="grid grid-cols-2 gap-4 form-group">
 
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Address : </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Address : </label>
                                                         <textarea type="text"
                                                             required
                                                             placeholder=''
@@ -211,7 +211,7 @@ export default class EditInquiry extends Component {
                                                     </div>
                                                     <div className="grid grid-cols-2 gap-4 form-group">
                                                         <div class="">
-                                                            <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Status : </label>
+                                                            <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Status : </label>
                                                             <select textarea="text"
                                                             disabled
                                                                 placeholder=''
@@ -223,7 +223,7 @@ export default class EditInquiry extends Component {
                                                         </select><p />
                                                     </div>
                                                     <div className="form-group">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Date: </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Date: </label>
                                                         <DatePicker
                                                             disabled
                                                             className='m-2'

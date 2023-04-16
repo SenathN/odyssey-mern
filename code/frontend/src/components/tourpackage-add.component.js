@@ -137,7 +137,7 @@ export class CreateTour extends Component {
                                             <div className="grid grid-cols-1 gap-4 form-group">
 
                                                 <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Tour Name / Title : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Tour Name / Title : </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -149,7 +149,7 @@ export class CreateTour extends Component {
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
                                                 {/* <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Created Date : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >Created Date : </label>
                                                     <div>
                                                         <DatePicker
                                                             className='m-2'
@@ -159,7 +159,7 @@ export class CreateTour extends Component {
                                                     </div>
                                                 </div><p /> */}
                                                 <div className="form-group">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>From : </label>
+                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>From : </label>
                                                     <input textarea="text"
                                                         required
                                                         placeholder=''
@@ -169,7 +169,7 @@ export class CreateTour extends Component {
                                                     /><p />
                                                 </div>
                                                 <div className="form-group">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>To : </label>
+                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>To : </label>
                                                     <input textarea="text"
                                                         required
                                                         placeholder=''
@@ -181,7 +181,7 @@ export class CreateTour extends Component {
                                             </div>
 
                                             <div className="form-group">
-                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Tour Description : </label>
+                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Tour Description : </label>
                                                 <textarea type="text"
                                                     required
                                                     placeholder=''
@@ -192,7 +192,7 @@ export class CreateTour extends Component {
                                             </div>
 
                                             <div className="form-group">
-                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Mode Of Transportation : </label>
+                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Mode Of Transportation : </label>
                                                 <input type="text"
                                                     required
                                                     placeholder=''
@@ -204,7 +204,7 @@ export class CreateTour extends Component {
 
                                             <div className="grid grid-cols-2 gap-4 form-group">
                                                 <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Date : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >Date : </label>
                                                     <div>
                                                         <DatePicker
                                                             className='m-2'
@@ -214,7 +214,7 @@ export class CreateTour extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Price : </label>
+                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Price : </label>
                                                     <input textarea="text"
                                                         required
                                                         placeholder=''
