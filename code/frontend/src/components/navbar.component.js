@@ -9,15 +9,16 @@ function navbar() {
           <a href="/home" className="text-xl no-underline duration-300 text-grey-darkest hover:text-blue-dark hover:font-bold">Home</a>
         </div>
         <div className='text-lg font-light hover:text-blue-dark'>
-          <a href="/customerTicket" className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Customer</a>
-          <a href="/ticket" className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">C.Admin</a>
-          <a href="/tour" className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">TourPackages</a>
-          <a href="/adTourPackageList" className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">TP.Admin</a>
-          <a href="/guide" className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Guides</a>
-          <a href="/guidePack" className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Guide Packs</a>
-          <a href="/guidePackAdmin" className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Ad.Guide Packs</a>
-          <a href="/inquiry" className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Inquiry</a>
-          <a href="/adInquiry" className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Ad.Inquiry</a>
+          <Link to={"/customerTicket"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Customer</Link>
+          <Link to={"/ticket"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">C.Admin</Link>
+          <Link to={"/tour"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">TourPackages</Link>
+          <Link to={"/adTourPackageList"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">TP.Admin</Link>
+          <Link to={"/guide"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Guides</Link>
+          <Link to={"/guidePack"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Guide Packs</Link>
+          <Link to={"/guidePackAdmin"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Ad.Guide Packs</Link>
+          <Link to={"/inquiry"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Inquiry</Link>
+          <Link to={"/adInquiry"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Ad.Inquiry</Link>
+          <Link to={"/spaceProvider"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">SpaceProvider</Link>
           {/* <a href="/#" className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">SampleData</a> */}
         </div>
         <div className="grid grid-cols-2 gap-1">

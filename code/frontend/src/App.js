@@ -24,6 +24,9 @@ import { GuideList } from './components/guide-list.component';
 import { CreateGuide } from './components/guide-add.component';
 import { GuidePackList } from './components/guidePack-list.component';
 
+import { SpaceProviderList } from './components/spaceProvider-list.component';
+import { CreateSpaceProvider } from './components/spaceProvider-add.component';
+
 import { AdInquiryList } from './components/adInquiry-list.component';
 import { GuidePackAdminList } from './components/guidePackAdmin-list.component';
 import CreateGuidePackage from './components/guidePackAdmin-add.component';
@@ -58,6 +61,9 @@ function App() {
 
             <Route exact path="/inquiry" element={<InquiryList />} />
             <Route exact path="/createInquiry" element={<CreateInquiry />} />
+
+            <Route exact path="/spaceProvider" element={<SpaceProviderList />} />
+            <Route exact path="/createSpaceProvider" element={<CreateSpaceProvider />} />
 
             <Route exact path="/adInquiry" element={<AdInquiryList />} />
 
