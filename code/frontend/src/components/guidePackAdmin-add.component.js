@@ -122,7 +122,7 @@ export default class CreateGuidePackage extends Component {
                                             <div className="grid grid-cols-2 gap-4 form-group">
 
                                                 <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Guide Name </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 '>Guide Name </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -132,7 +132,7 @@ export default class CreateGuidePackage extends Component {
                                                     /><p />
                                                 </div>
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Tourist Area</label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 '>Tourist Area</label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -144,7 +144,7 @@ export default class CreateGuidePackage extends Component {
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
                                                 <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Language Type</label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 ' >Language Type</label>
                                                     <div>
                                                         <input type="text"
 
@@ -156,7 +156,7 @@ export default class CreateGuidePackage extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Vehicle Type</label>
+                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 '>Vehicle Type</label>
                                                     <input textarea="text"
                                                         required
                                                         placeholder=''
@@ -169,7 +169,7 @@ export default class CreateGuidePackage extends Component {
                                             <div className="grid grid-cols-2 gap-4 form-group">
 
                                                 <div class="">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Price</label>
+                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 '>Price</label>
                                                     <input textarea="text"
                                                         required
                                                         placeholder=''

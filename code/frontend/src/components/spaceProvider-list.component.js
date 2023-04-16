@@ -205,7 +205,7 @@ export class SpaceProviderList extends Component {
         const doc = new jsPDF(orientation, unit, size);
 
         const title = "SpaceProvider List Report ";
-        const headers = [["SpaceProvider Name", "Email", "Language Type", "Service Type", "Mobile Numaber", "Address", "NIC"]];
+        const headers = [["SpaceProvider Name", "NIC", "Address", "Company", "Email", "Languages", "Mobile Numaber"]];
 
         const emp = this.state.spaceProvider.map(
             SpaceProvider => [
@@ -215,7 +215,7 @@ export class SpaceProviderList extends Component {
                 SpaceProvider.company,
                 SpaceProvider.email,
                 SpaceProvider.langType,
-                SpaceProvider.mobileNumber,
+                SpaceProvider.telNo,
             ]
         );
 

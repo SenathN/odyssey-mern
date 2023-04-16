@@ -89,17 +89,17 @@ export class GuidePackDetails extends Component {
                 return (
                     <div class="">
                         <div class="col-span-4 block p-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-70">
-                            <h5 class="mb-2 text-4xl  tracking-tight text-teal-900 dark:text-white">{currentguide.guideName}</h5>
-                            <p class="mb-2 text-2xl  tracking-tight text-gray-900 dark:text-white">email : {currentguide.email}</p>
-                            <p class="mb-2 text-2xl  tracking-tight text-gray-900 dark:text-white">Service Type : {currentguide.serviceType}</p>
-                            <p class="mb-2 text-2xl  tracking-tight text-gray-900 dark:text-white">Language Type : {currentguide.langType}</p>
-                            <p class="mb-2 text-2xl  tracking-tight text-gray-900 dark:text-white">NIC : {currentguide.nic}</p>
+                            <h5 class="mb-2 text-4xl  tracking-tight text-teal-900 ">{currentguide.guideName}</h5>
+                            <p class="mb-2 text-2xl  tracking-tight text-gray-900 ">email : {currentguide.email}</p>
+                            <p class="mb-2 text-2xl  tracking-tight text-gray-900 ">Service Type : {currentguide.serviceType}</p>
+                            <p class="mb-2 text-2xl  tracking-tight text-gray-900 ">Language Type : {currentguide.langType}</p>
+                            <p class="mb-2 text-2xl  tracking-tight text-gray-900 ">NIC : {currentguide.nic}</p>
                             <div class="grid grid-cols-2 gap-4 justify-between">
                                 <div class="">
-                                    <p class="mb-2 text-2xl  tracking-tight text-gray-900 dark:text-white">Address : {currentguide.address}</p>
+                                    <p class="mb-2 text-2xl  tracking-tight text-gray-900 ">Address : {currentguide.address}</p>
                                 </div>
                                 <div class="">
-                                    <p class="mb-2 text-2xl  tracking-tight text-gray-900 dark:text-white">Contact Number : {currentguide.mobileNumber}</p>
+                                    <p class="mb-2 text-2xl  tracking-tight text-gray-900 ">Contact Number : {currentguide.mobileNumber}</p>
                                 </div>
                             </div>
                         </div>
@@ -123,13 +123,13 @@ export class GuidePackDetails extends Component {
                             <div class="col-span-4 block p-10 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-70">
                                 <div class="grid grid-cols-2 gap-4 justify-between">
                                     <div class="">
-                                        <h5 class="mb-2 text-4xl  tracking-tight text-teal-900 dark:text-white">{currentguidepack.touristArea}</h5>
+                                        <h5 class="mb-2 text-4xl  tracking-tight text-teal-900 ">{currentguidepack.touristArea}</h5>
                                     </div>
                                     <div class="">
-                                        <p class="text-red-600 uppercase font-semibold ml-44 mb-2 text-2xl  tracking-tight dark:text-white">{currentguidepack.price} per person</p>
+                                        <p class="text-red-600 uppercase font-semibold ml-44 mb-2 text-2xl  tracking-tight ">{currentguidepack.price} per person</p>
                                     </div>
                                 </div>
-                                <p class="mb-2 text-2xl  tracking-tight text-gray-900 dark:text-white">Mode Of Transport: {currentguidepack.vehicleType}</p>
+                                <p class="mb-2 text-2xl  tracking-tight text-gray-900 ">Mode Of Transport: {currentguidepack.vehicleType}</p>
                             </div>
                         </div>
                     </div>

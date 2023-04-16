@@ -163,7 +163,7 @@ export default class EditGuide extends Component {
                                                 <div className="grid grid-cols-2 gap-4 form-group">
 
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Guide Name </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 '>Guide Name </label>
                                                         <input type="text"
                                                             required
                                                             placeholder=''
@@ -173,7 +173,7 @@ export default class EditGuide extends Component {
                                                         /><p />
                                                     </div>
                                                     <div className="form-group">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Eamil</label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 '>Eamil</label>
                                                         <input type="text"
                                                             required
                                                             placeholder=''
@@ -185,7 +185,7 @@ export default class EditGuide extends Component {
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Language Type</label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 ' >Language Type</label>
                                                         <div>
                                                             <input type="text"
                                                                
@@ -197,7 +197,7 @@ export default class EditGuide extends Component {
                                                         </div>
                                                     </div>
                                                     <div className="form-group">
-                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Service Type</label>
+                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 '>Service Type</label>
                                                         <input textarea="text"
                                                             required
                                                             placeholder=''
@@ -209,7 +209,7 @@ export default class EditGuide extends Component {
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
                                                 <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Mobile Naumber</label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 ' >Mobile Naumber</label>
                                                         <div>
                                                             <input type="text"
                                                                
@@ -221,7 +221,7 @@ export default class EditGuide extends Component {
                                                         </div>
                                                     </div>
                                                     <div className="form-group">
-                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Address</label>
+                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 '>Address</label>
                                                         <input textarea="text"
                                                             required
                                                             placeholder=''
@@ -237,7 +237,7 @@ export default class EditGuide extends Component {
 
                                                 <div className="grid grid-cols-2 gap-4 form-group">
                                                 <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >NIC</label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 ' >NIC</label>
                                                         <div>
                                                             <input type="text"
                                                                

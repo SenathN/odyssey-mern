@@ -9,8 +9,8 @@ function navbar() {
           <a href="/home" className="text-xl no-underline duration-300 text-grey-darkest hover:text-blue-dark hover:font-bold">Home</a>
         </div>
         <div className='text-lg font-light hover:text-blue-dark'>
-          <Link to={"/customerTicket"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Customer</Link>
-          <Link to={"/ticket"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">C.Admin</Link>
+          <Link to={"/customerTicket"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Airticket Customer</Link>
+          <Link to={"/ticket"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">ATC.Admin</Link>
           <Link to={"/tour"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">TourPackages</Link>
           <Link to={"/adTourPackageList"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">TP.Admin</Link>
           <Link to={"/guide"} className="m-2 text-black no-underline duration-300 hover:text-blue-800 hover:font-normal">Guides</Link>
