@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   const [credentials, credentialAction] = useState({})
@@ -29,6 +30,8 @@ const Login = () => {
         <br />
         <input type='submit' onClick={(e) => handleLogin(e)} className='btn btn-primary' value={'Sign in'}/>
       </form>
+      
+      <Link to={'/dashboard'}>dash</Link>
     </div>
   )
 }

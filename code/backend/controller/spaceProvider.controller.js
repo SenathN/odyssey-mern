@@ -3,16 +3,15 @@ const SpaceProvider = require('../model/spaceProvider.model');
 //Create new spaceProvider pack 
 const createSpaceProvider = async (req, res) => {
     //catching data from front end to these attributes
-    const { username, email, langType, telNo, address, nic, password, company } = req.body;
+    const { firstName, email, serviceType, telNo, nic, password, lastName } = req.body;
 
-    //create a object to store saved data to save in the mongo db database
+    //create a object to store saved data to save in the mongo db serviceType
     const spaceProvider = new SpaceProvider({
-        username,
-        company,
+        firstName,
+        lastName,
         email,
-        langType,
+        serviceType,
         telNo,
-        address,
         nic,
         password
     });
@@ -59,13 +58,12 @@ const getSpaceProvider = async (req, res) => {
 const updateSpaceProvider = async (req, res) => {
     SpaceProvider.findByIdAndUpdate(req.params.id).
         then((exsistingSpaceProvider) => {
-            exsistingSpaceProvider.username = req.body.username;
+            exsistingSpaceProvider.firstName = req.body.firstName;
             exsistingSpaceProvider.email = req.body.email;
-            exsistingSpaceProvider.langType = req.body.langType;
+            exsistingSpaceProvider.serviceType = req.body.serviceType;
             exsistingSpaceProvider.telNo = req.body.telNo;
-            exsistingSpaceProvider.company = req.body.company;
-            exsistingSpaceProvider.address = req.body.address;
-            exsistingSpaceProvider.nic = req.body.nic;
+            exsistingSpaceProvider.lastName = req.body.lastName;
+            exsistingSpaceProvider.nic = serviceTypeq.body.serviceType
 
             if (req.body?.password)
                 exsistingSpaceProvider.password = req.body.password;

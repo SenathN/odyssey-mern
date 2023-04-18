@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { CreateTicket } from "./components/ticket-add.component";
@@ -37,6 +38,8 @@ import Layout from './features/Layout';
 import Home from './features/Home';
 import SignUp from './features/SignUp';
 import Login from './features/Login';
+import DashLayout from './features/DashLayout'
+import DashBoard from './features/DashBoard'
 
 function App() {
   return (
@@ -48,6 +51,11 @@ function App() {
             <Route path='/signup' element={<SignUp />} />
             <Route path='/signin' element={<Login />} />
 
+            <Route path='dashboard' element={<DashLayout />}>
+              <Route index element={<DashBoard />} />
+              <Route path='spaces' element={<SpaceList />} />
+              <Route path="spaceProvider" element={<SpaceProviderList />} />
+            </Route>
             <Route exact path="/createTicket" element={<CreateTicket />} />
             <Route exact path="/ticket" element={<TicketList />} />
 
