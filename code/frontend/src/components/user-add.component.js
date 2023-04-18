@@ -5,33 +5,42 @@ import * as Swal from "sweetalert2";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-export class CreateSpaceProvider extends Component {
+export class CreateUser extends Component {
     constructor(props) {
         super(props);
-        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangeFirstName = this.onChangeFirstName.bind(this);
+        this.onChangeLastName = this.onChangeLastName.bind(this);
+        this.onChangeNIC = this.onChangeNIC.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangeLangType = this.onChangeLangType.bind(this);
-        this.onChangeCompany = this.onChangeCompany.bind(this);
         this.onChangeTelNo = this.onChangeTelNo.bind(this);
-        this.onChangeAddress = this.onChangeAddress.bind(this);
-        this.onChangeNIC = this.onChangeNIC.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.state = {
-            username: '',
+            firstName: '',
+            lastName: '',
             nic: '',
             email: '',
             langType: '',
-            company: '',
             telNo: '',
-            password: '',
-            address: ''
+            password: ''
         }
     }
 
-    onChangeUsername(e) {
+
+    onChangeFirstName(e) {
         this.setState({
-            username: e.target.value
+            firstName: e.target.value
+        });
+    }
+    onChangeLastName(e) {
+        this.setState({
+            lastName: e.target.value
+        });
+    }
+    onChangeNIC(e) {
+        this.setState({
+            nic: e.target.value
         });
     }
     onChangeEmail(e) {
@@ -44,52 +53,30 @@ export class CreateSpaceProvider extends Component {
             langType: e.target.value
         });
     }
-    onChangeCompany(e) {
-        this.setState({
-            company: e.target.value
-        });
-    }
     onChangeTelNo(e) {
         this.setState({
             telNo: e.target.value
         });
     }
-    onChangeAddress(e) {
-
-        this.setState({
-            address: e.target.value,
-        });
-
-    }
-
-    onChangeNIC(e) {
-        this.setState({
-            nic: e.target.value
-        });
-    }
-
     onChangePassword(e) {
         this.setState({
             password: e.target.value
         });
     }
 
-
-
     onSubmit(e) {
         e.preventDefault();
-        const spaceProvider = {
-            username: this.state.username,
+        const user = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            nic: this.state.nic,
             email: this.state.email,
             langType: this.state.langType,
-            company: this.state.company,
             telNo: this.state.telNo,
-            address: this.state.address,
-            nic: this.state.nic,
             password: this.state.password
         }
-        console.log(spaceProvider);
-        axios.post('http://localhost:5000/api/spaceProvider/add', spaceProvider)
+        console.log(user);
+        axios.post('http://localhost:5000/api/user/add', user)
             .then(res => {
                 console.log(res);
                 if (res.status === 200) {
@@ -97,7 +84,7 @@ export class CreateSpaceProvider extends Component {
                     Swal.fire({
                         icon: 'success',
                         title: 'Successful',
-                        text: 'SpaceProvider has been created!!',
+                        text: 'User has been created!!',
                         background: '#fff',
                         confirmButtonColor: '#133EFA',
                         iconColor: '#60e004'
@@ -113,17 +100,18 @@ export class CreateSpaceProvider extends Component {
                     })
                 }
             })
+        
     }
 
     clearData = () => {
         this.setState({
-            username: '',
+            firstName: '',
+            lastName: '',
+            nic: '',
             email: '',
             langType: '',
-            company: '',
             telNo: '',
-            address: '',
-            nic: ''
+            password: ''
         })
     }
 
@@ -137,25 +125,48 @@ export class CreateSpaceProvider extends Component {
                                 <div className="grid grid-cols-1 gap-4 content-start pt-5 px-20">
                                     <form className='px-12 py-12 border-2 rounded-lg shadow-md bg-gray-50' onSubmit={this.onSubmit}>
                                         <div className="">
-                                            <p className='text-4xl font-semibold text-black uppercase drop-shadow-lg'>
-                                                Add a Space Provider
+                                            <p className='display-6 text-center pb-4'>
+                                                Sign up
                                             </p>
                                             <div className="grid grid-cols-2 gap-4 form-group">
 
                                                 <div className="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>SpaceProvider Name </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>First Name </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
                                                         className="form-control "
-                                                        title = 'Enter a name atleast 3 characters long'
-                                                        value={this.state.username}
-                                                        onChange={this.onChangeUsername}
+                                                        value={this.state.firstName}
+                                                        onChange={this.onChangeFirstName}
                                                     /><br />
                                                 </div>
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Email</label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Last Name</label>
                                                     <input type="text"
+                                                        required
+                                                        placeholder=''
+                                                        className="form-control"
+                                                        value={this.state.lastName}
+                                                        onChange={this.onChangeLastName}
+                                                    /><br />
+                                                </div>
+                                            </div>
+                                            <div className="grid grid-cols-2 gap-4 form-group">
+                                                <div className="">
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >NIC number</label>
+                                                    <div>
+                                                        <input type="text"
+                                                            required
+                                                            placeholder=''
+                                                            className="form-control"
+                                                            value={this.state.nic}
+                                                            onChange={this.onChangeNIC}
+                                                        /><br />
+                                                    </div>
+                                                </div>
+                                                <div className="form-group">
+                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Email</label>
+                                                    <input type="email"
                                                         required
                                                         placeholder=''
                                                         className="form-control"
@@ -165,68 +176,33 @@ export class CreateSpaceProvider extends Component {
                                                 </div>
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
-                                                <div className="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >Language</label>
-                                                    <div>
-                                                        <input type="text"
-                                                            required
-                                                            placeholder=''
-                                                            className="form-control"
-                                                            value={this.state.langType}
-                                                            onChange={this.onChangeLangType}
-                                                        /><br />
-                                                    </div>
-                                                </div>
                                                 <div className="form-group">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Company/Business name</label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Languages</label>
                                                     <input textarea="text"
                                                         required
                                                         placeholder=''
                                                         className="form-control"
-                                                        value={this.state.company}
-                                                        onChange={this.onChangeCompany}
+                                                        value={this.state.langType}
+                                                        onChange={this.onChangeLangType}
                                                     /><br />
                                                 </div>
-                                            </div>
-                                            <div className="grid grid-cols-2 gap-4 form-group">
+                                                <div className="grid grid-cols-2 gap-4 form-group">
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Mobile Number</label>
-                                                    <input textarea="text"
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Mobile number</label>
+                                                    <input langType="text"
                                                         required
                                                         placeholder=''
-                                                        pattern='[0-9]{10}'
-                                                        title='Only enter a 10 digit number'
+                                                        pattern='[0-9]{6,26}'
+                                                        title='Only enter numbers'
                                                         className="form-control"
                                                         value={this.state.telNo}
                                                         onChange={this.onChangeTelNo}
                                                     /><br />
                                                 </div>
-                                                <div className="grid grid-cols-2 gap-4 form-group">
-                                                    <div className="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Address</label>
-                                                        <input textarea="text"
-                                                            required
-                                                            placeholder=''
-                                                            className="form-control"
-                                                            value={this.state.address}
-                                                            onChange={this.onChangeAddress}
-                                                        /><br />
-                                                    </div>
-                                                    <div className="">
-                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>NIC</label>
-                                                        <input textarea="text"
-                                                            required
-                                                            placeholder=''
-                                                            className="form-control"
-                                                            value={this.state.nic}
-                                                            onChange={this.onChangeNIC}
-                                                        />
-                                                    </div>
-
                                                 </div><br />
                                                 <div className="form-group">
                                                     <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Password</label>
-                                                    <input type='password'
+                                                    <input type="password"
                                                         required
                                                         placeholder=''
                                                         className="form-control"
@@ -236,12 +212,7 @@ export class CreateSpaceProvider extends Component {
                                                 </div>
                                             </div>
                                             <div className="text-center align-middle form-group">
-                                                <input className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' type="submit" value="Add Space Provider" />
-                                                <Link to={'/spaceProvider'}>
-                                                    <button className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'>
-                                                        Cancel
-                                                    </button>
-                                                </Link>
+                                                <input className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' type="submit" value="Sign Up" />
                                             </div>
                                         </div>
                                     </form>
