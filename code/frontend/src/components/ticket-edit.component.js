@@ -182,7 +182,7 @@ export default class EditTicket extends Component {
                                                 <div className="grid grid-cols-2 gap-4 form-group">
 
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>First Name : </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 '>First Name : </label>
                                                         <input type="text"
                                                             required
                                                             placeholder=''
@@ -192,7 +192,7 @@ export default class EditTicket extends Component {
                                                         /><p />
                                                     </div>
                                                     <div className="form-group">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Last Name : </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 '>Last Name : </label>
                                                         <input type="text"
                                                             required
                                                             placeholder=''
@@ -204,7 +204,7 @@ export default class EditTicket extends Component {
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Passport Id Number : </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 ' >Passport Id Number : </label>
                                                         <div>
                                                             <input type="text"
                                                                 readOnly
@@ -216,7 +216,7 @@ export default class EditTicket extends Component {
                                                         </div>
                                                     </div>
                                                     <div className="form-group">
-                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Contact Number : </label>
+                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 '>Contact Number : </label>
                                                         <input textarea="text"
                                                             required
                                                             placeholder=''
@@ -228,7 +228,7 @@ export default class EditTicket extends Component {
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
                                                     <div className="form-group">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Booking Date: </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 '>Booking Date: </label>
                                                         <DatePicker
                                                             className='m-2'
                                                             selected={this.state.bookingDate}
@@ -238,7 +238,7 @@ export default class EditTicket extends Component {
                                                     <div className="form-group">
                                                         <div className="grid grid-cols-2 gap-4 form-group">
                                                             <div className="form-group">
-                                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>To Location : </label>
+                                                                <label className='block mb-2 text-lg font-medium text-gray-900 '>To Location : </label>
                                                                 <select type="text"
                                                                     required
                                                                     placeholder=''
@@ -254,7 +254,7 @@ export default class EditTicket extends Component {
                                                                 </select><p />
                                                             </div>
                                                             <div class="">
-                                                                <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Price : </label>
+                                                                <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 '>Price : </label>
                                                                 <input textarea="text"
                                                                     required
                                                                     placeholder=''

@@ -3,6 +3,7 @@ import axios from 'axios';
 import * as Swal from "sweetalert2";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import { Link } from 'react-router-dom';
 
 export class CreateInquiry extends Component {
     constructor(props) {
@@ -17,7 +18,6 @@ export class CreateInquiry extends Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.state = {
             CusName: '',
-            type: '',
             description: '',
             contactNum: '',
             address: '',
@@ -64,6 +64,7 @@ export class CreateInquiry extends Component {
 
     onSubmit(e) {
         e.preventDefault();
+
         const inquiry = {
             CusName: this.state.CusName,
             type: this.state.type,
@@ -97,6 +98,7 @@ export class CreateInquiry extends Component {
                         iconColor: '#e00404'
                     })
                 }
+                navigator('/inquiry')
             })
     }
 
@@ -128,7 +130,7 @@ export class CreateInquiry extends Component {
                                             <div className="grid grid-cols-2 gap-4 form-group">
 
                                                 <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Your Name : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Your Name : </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -138,7 +140,7 @@ export class CreateInquiry extends Component {
                                                     /><p />
                                                 </div>
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Type : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Type : </label>
                                                     <select type="text"
                                                         required
                                                         placeholder=''
@@ -147,6 +149,7 @@ export class CreateInquiry extends Component {
                                                         onChange={this.onChangeType}
                                                         selected="Payment"
                                                     >
+                                                        <option defaultChecked> -- select an option -- </option>
                                                         <option>Payment</option>
                                                         <option>Travel Package</option>
                                                         <option>Tour Guide</option>
@@ -156,7 +159,7 @@ export class CreateInquiry extends Component {
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
                                                 <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Description : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >Description : </label>
                                                     <div>
                                                         <textarea type="text"
                                                             required
@@ -168,7 +171,7 @@ export class CreateInquiry extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Contact Number: </label>
+                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Contact Number: </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -181,7 +184,7 @@ export class CreateInquiry extends Component {
                                             <div className="grid grid-cols-2 gap-4 form-group">
 
                                                 <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Address : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Address : </label>
                                                     <textarea type="text"
                                                         required
                                                         placeholder=''
@@ -192,7 +195,7 @@ export class CreateInquiry extends Component {
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
                                                     <div class="">
-                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Status : </label>
+                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Status : </label>
                                                         <input textarea="text"
                                                             disabled
                                                             placeholder='Pending!'
@@ -202,7 +205,7 @@ export class CreateInquiry extends Component {
                                                         />
                                                     </div>
                                                     <div className="form-group">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Date: </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Date: </label>
                                                         <DatePicker
                                                             className='m-2'
                                                             selected={this.state.date}
@@ -213,6 +216,11 @@ export class CreateInquiry extends Component {
                                             </div>
                                             <div className="text-center align-middle form-group">
                                                 <input className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' type="submit" value="Place" />
+                                                <Link className='font-semibold text-white no-underline' to={"/inquiry"}>
+                                                    <button className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' >
+                                                        Cancel
+                                                    </button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </form>

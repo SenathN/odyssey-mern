@@ -144,16 +144,16 @@ export class CreateTicket extends Component {
                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                         <div className='items-center overflow-hidden'>
                             <div className=''>
-                                <div class="grid grid-cols-1 gap-4 content-start pt-5 px-20">
+                                <div className="grid grid-cols-1 gap-4 content-start pt-5 px-20">
                                     <form className='px-12 py-12 border-2 rounded-lg shadow-md bg-gray-50' onSubmit={this.onSubmit}>
-                                        <div class="">
+                                        <div className="">
                                             <p className='text-4xl font-semibold text-black uppercase drop-shadow-lg'>
                                                 Book A Ticket Now
                                             </p>
                                             <div className="grid grid-cols-2 gap-4 form-group">
 
-                                                <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>First Name : </label>
+                                                <div className="">
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>First Name : </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -163,7 +163,7 @@ export class CreateTicket extends Component {
                                                     /><p />
                                                 </div>
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Last Name : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Last Name : </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -174,8 +174,8 @@ export class CreateTicket extends Component {
                                                 </div>
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
-                                                <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Passport Id Number : </label>
+                                                <div className="">
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >Passport Id Number : </label>
                                                     <div>
                                                         <input type="text"
                                                             required
@@ -187,7 +187,7 @@ export class CreateTicket extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Contact Number : </label>
+                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Contact Number : </label>
                                                     <input textarea="text"
                                                         required
                                                         placeholder=''
@@ -199,7 +199,7 @@ export class CreateTicket extends Component {
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Booking Date: </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Booking Date: </label>
                                                     <DatePicker
                                                         className='m-2'
                                                         selected={this.state.bookingDate}
@@ -207,8 +207,8 @@ export class CreateTicket extends Component {
                                                     />
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
-                                                    <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>To Location : </label>
+                                                    <div className="">
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>To Location : </label>
                                                         <select type="text"
                                                             required
                                                             placeholder=''
@@ -223,8 +223,8 @@ export class CreateTicket extends Component {
                                                             <option>Dubai</option>
                                                         </select>
                                                     </div>
-                                                    <div class="">
-                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Price : </label>
+                                                    <div className="">
+                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Price : </label>
                                                         <input textarea="text"
                                                             required
                                                             placeholder=''
@@ -238,7 +238,7 @@ export class CreateTicket extends Component {
                                             </div>
 
                                             {/* <div className="form-group ">
-                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' for="grid-state">Department : </label>
+                                                <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' for="grid-state">Department : </label>
                                                 <select type="text"
                                                     required
                                                     className="form-control"

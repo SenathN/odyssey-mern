@@ -147,7 +147,7 @@ export default class AdEditInquiry extends Component {
                                                 <div className="grid grid-cols-2 gap-4 form-group">
 
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Your Name : </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 '>Your Name : </label>
                                                         <input type="text"
                                                             disabled
                                                             required
@@ -158,7 +158,7 @@ export default class AdEditInquiry extends Component {
                                                         /><p />
                                                     </div>
                                                     <div className="form-group">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Type : </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 '>Type : </label>
                                                         <select type="text"
                                                             disabled
                                                             required
@@ -177,7 +177,7 @@ export default class AdEditInquiry extends Component {
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Description : </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 ' >Description : </label>
                                                         <div>
                                                             <textarea type="text"
                                                                 disabled
@@ -190,7 +190,7 @@ export default class AdEditInquiry extends Component {
                                                         </div>
                                                     </div>
                                                     <div className="form-group">
-                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Contact Number: </label>
+                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 '>Contact Number: </label>
                                                         <input type="text"
                                                             disabled
                                                             required
@@ -204,7 +204,7 @@ export default class AdEditInquiry extends Component {
                                                 <div className="grid grid-cols-2 gap-4 form-group">
 
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Address : </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 '>Address : </label>
                                                         <textarea type="text"
                                                             disabled
                                                             required
@@ -216,7 +216,7 @@ export default class AdEditInquiry extends Component {
                                                     </div>
                                                     <div className="grid grid-cols-2 gap-4 form-group">
                                                         <div class="">
-                                                            <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Status : </label>
+                                                            <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 '>Status : </label>
                                                             <select textarea="text"
 
                                                                 placeholder=''
@@ -228,7 +228,7 @@ export default class AdEditInquiry extends Component {
                                                             </select><p />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Date: </label>
+                                                            <label className='block mb-2 text-lg font-medium text-gray-900 '>Date: </label>
                                                             <DatePicker
                                                                 disabled
                                                                 className='m-2'

@@ -9,15 +9,15 @@ const GuidePack = props => (
         <div class="">
         </div>
         <div class="col-span-4 block p-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-70">
-            <h5 class="mb-2 text-3xl  tracking-tight text-gray-900 dark:text-white">Guided By {props.guidepack.guideName}</h5>
-            <p class="mb-2 text-2xl  tracking-tight text-gray-900 dark:text-white">Area : {props.guidepack.touristArea}</p>
-            <p class="mb-2 text-2xl  tracking-tight text-gray-900 dark:text-white">Language Type : {props.guidepack.langType}</p>
+            <h5 class="mb-2 text-3xl  tracking-tight text-gray-900 ">Guided By {props.guidepack.guideName}</h5>
+            <p class="mb-2 text-2xl  tracking-tight text-gray-900 ">Area : {props.guidepack.touristArea}</p>
+            <p class="mb-2 text-2xl  tracking-tight text-gray-900 ">Language Type : {props.guidepack.langType}</p>
             <div class="grid grid-cols-2 gap-4 justify-between">
                 <div class="">
-                    <p class="mb-2 text-2xl  tracking-tight text-gray-900 dark:text-white">Mode Of Transport : {props.guidepack.vehicleType}</p>
+                    <p class="mb-2 text-2xl  tracking-tight text-gray-900 ">Mode Of Transport : {props.guidepack.vehicleType}</p>
                 </div>
-                <div class="">
-                    <p class="text-red-600 uppercase font-semibold ml-72 mb-2 text-2xl  tracking-tight dark:text-white">{props.guidepack.price} LKR Per person</p>
+                <div class=""><br />
+                    <p class="text-red-600 uppercase font-semibold  mb-2 text-2xl  tracking-tight ">{props.guidepack.price} LKR Per person</p>
                 </div>
             </div>
         </div>

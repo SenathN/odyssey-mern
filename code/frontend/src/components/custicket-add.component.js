@@ -21,7 +21,6 @@ export class CreateCusTicket extends Component {
             passportID: '',
             phoneNumber: '',
             bookingDate: new Date(),
-            toLocation: '',
             price: ''
         }
     }
@@ -151,7 +150,7 @@ export class CreateCusTicket extends Component {
                                             <div className="grid grid-cols-2 gap-4 form-group">
 
                                                 <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>First Name : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>First Name : </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -161,7 +160,7 @@ export class CreateCusTicket extends Component {
                                                     /><p />
                                                 </div>
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Last Name : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Last Name : </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -173,7 +172,7 @@ export class CreateCusTicket extends Component {
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
                                                 <div class="">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white' >Passport Id Number : </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >Passport Id Number : </label>
                                                     <div>
                                                         <input type="text"
                                                             required
@@ -185,7 +184,7 @@ export class CreateCusTicket extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Contact Number : </label>
+                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Contact Number : </label>
                                                     <input textarea="text"
                                                         required
                                                         placeholder=''
@@ -197,7 +196,7 @@ export class CreateCusTicket extends Component {
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
                                                 <div className="form-group">
-                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Booking Date: </label>
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Booking Date: </label>
                                                     <DatePicker
                                                         className='m-2'
                                                         selected={this.state.bookingDate}
@@ -206,7 +205,7 @@ export class CreateCusTicket extends Component {
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>To Location : </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>To Location : </label>
                                                         <select type="text"
                                                             required
                                                             placeholder=''
@@ -214,6 +213,7 @@ export class CreateCusTicket extends Component {
                                                             value={this.toLocation}
                                                             onChange={this.onChangeToLocation}
                                                         >
+                                                            <option defaultChecked> - Select - </option>
                                                             <option>UK</option>
                                                             <option>China</option>
                                                             <option>India</option>
@@ -222,12 +222,13 @@ export class CreateCusTicket extends Component {
                                                         </select>
                                                     </div>
                                                     <div class="">
-                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-white'>Price : </label>
+                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Price : </label> 
                                                         <input textarea="text"
                                                             required
+                                                            disabled
                                                             placeholder=''
                                                             className="form-control"
-                                                            value={this.state.price}
+                                                            value={this.state.price = 10000}
                                                             onChange={this.onChangePrice}
                                                         />
                                                     </div>

@@ -4,111 +4,97 @@ import * as Swal from "sweetalert2";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css"
 
-// firstName,
-// lastName,
-// passportID,
-// phoneNumber,
-// bookingDate
-// toLocation,
-// price,
-
-export default class EditGuidePackage extends Component {
+export default class EditSpace extends Component {
     constructor(props) {
         super(props);
-        this.onChangeGuideName = this.onChangeGuideName.bind(this);
-        this.onChangeTouristArea = this.onChangeTouristArea.bind(this);
-        this.onChangeLangType = this.onChangeLangType.bind(this);
-        this.onChangeVehicleType = this.onChangeVehicleType.bind(this);
-        this.onChangePrice = this.onChangePrice.bind(this);
-        
+        this.onChangeName = this.onChangeName.bind(this);
+        this.onChangeDescription = this.onChangeDescription.bind(this);
+        this.onChangeLocation = this.onChangeLocation.bind(this);
+        this.onChangePeopleCount = this.onChangePeopleCount.bind(this);
+        this.onChangeRate = this.onChangeRate.bind(this);
+
         this.onSubmit = this.onSubmit.bind(this);
         this.state = {
-            id:props.guId,
-            guideName: '',
-            touristArea: '',
-            langType: '',
-            vehicleType: '',
-            price: ''
+            name: '',
+            description: '',
+            location: '',
+            peopleCount: '',
+            rate: '',
         }
     }
 
     //mounting retrived data to text areas
     componentDidMount() {
-        axios.get('http://localhost:5000/api/guidepackage/' + this.state.id)
+        axios.get('http://localhost:5000/api/space/' + this.props.spaceId)
             .then(response => {
-                console.log(this.props.ticketId);
                 this.setState({
-                    guideName: response.data.guideName,
-                    touristArea: response.data.touristArea,
-                    langType: response.data.langType,
-                    vehicleType: response.data.vehicleType,
-                    price: response.data.price,
+                    name: response.data.name,
+                    description: response.data.description,
+                    location: response.data.location,
+                    peopleCount: response.data.peopleCount,
+                    rate: response.data.rate,
+
                 })
+                console.log("Mounting");
+
             })
             .catch(function (error) {
                 console.log("Error in mounting" + error);
             })
     }
-
-    onChangeGuideName(e) {
+    onChangeName(e) {
         this.setState({
-            guideName: e.target.value
+            name: e.target.value
         });
     }
-    onChangeTouristArea(e) {
+    onChangeDescription(e) {
         this.setState({
-            touristArea: e.target.value
+            description: e.target.value
         });
     }
-    onChangeLangType(e) {
+    onChangeLocation(e) {
         this.setState({
-            langType: e.target.value
+            location: e.target.value
         });
     }
-    onChangeVehicleType(e) {
+    onChangePeopleCount(e) {
         this.setState({
-            vehicleType: e.target.value
+            peopleCount: e.target.value
         });
     }
-
-    onChangePrice(e) {
+    onChangeRate(e) {
         this.setState({
-            price: e.target.value
+            rate: e.target.value
         });
     }
 
     onSubmit(e) {
         e.preventDefault();
-        const pack = {
-            guideName: this.state.guideName,
-            touristArea: this.state.touristArea,
-            langType: this.state.langType,
-            vehicleType: this.state.vehicleType,
-            price: this.state.price,
+        const space = {
+            name: this.state.name,
+            description: this.state.description,
+            location: this.state.location,
+            peopleCount: this.state.peopleCount,
+            rate: this.state.rate
         }
-
-        console.log(pack);
-      
-        axios.put('http://localhost:5000/api/guidepackage/' + this.state.id, pack)
+        console.log(space);
+        axios.put('http://localhost:5000/api/space/' + this.props.spaceId, space)
             .then(res => {
                 console.log(res);
                 if (res.status === 200) {
-                    // this.refreshTable();
-                    this.props.close();
                     Swal.fire({
                         icon: 'success',
                         title: 'Successful',
-                        text: 'Guide Package details has been updated!',
+                        text: 'Space has been placed!',
                         background: '#fff',
                         confirmButtonColor: '#133EFA',
                         iconColor: '#60e004'
                     })
-
                 } else {
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',
-                        text: 'There was an error updating Your Guide Package!',
+                        text: 'Error in creating!',
                         background: '#fff',
                         confirmButtonColor: '#133EFA',
                         iconColor: '#e00404'
@@ -116,15 +102,6 @@ export default class EditGuidePackage extends Component {
                 }
             })
     }
-
-    /*
-    docName,
-    category,
-    date,
-    description,
-    createdEmp,
-    empTitle,
-    */
 
     render() {
         return (
@@ -135,91 +112,84 @@ export default class EditGuidePackage extends Component {
                             <div className=''>
                                 <div class="grid grid-cols-1 gap-4 content-start pt-5 px-20">
                                     <div className="formdiv">
-                                        <form className=' rounded-lg' onSubmit={this.onSubmit}>
+                                        <form className='rounded-lg ' onSubmit={this.onSubmit}>
                                             <div class="">
                                                 <p className='text-4xl font-semibold text-black uppercase drop-shadow-lg'>
-                                                    Update Guide Package Details
+                                                    Update The Space
                                                 </p>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
 
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 '>Guide Name </label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Space Name : </label>
                                                         <input type="text"
                                                             required
                                                             placeholder=''
                                                             className="form-control "
-                                                            value={this.state.guideName}
-                                                            onChange={this.onChangeGuideName}
+                                                            value={this.state.name}
+                                                            onChange={this.onChangeName}
                                                         /><p />
                                                     </div>
                                                     <div className="form-group">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 '>Tourist Area</label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Description : </label>
                                                         <input type="text"
                                                             required
                                                             placeholder=''
                                                             className="form-control"
-                                                            value={this.state.touristArea}
-                                                            onChange={this.onChangeTouristArea}
-                                                        /><p />
+                                                            value={this.state.description}
+                                                            onChange={this.onChangeDescription}
+                                                            selected="Payment" />
                                                     </div>
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
                                                     <div class="">
-                                                        <label className='block mb-2 text-lg font-medium text-gray-900 ' >Language Type</label>
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >Location : </label>
                                                         <div>
-                                                            <input type="text"
-                                                               
+                                                            <textarea type="text"
+                                                                required
                                                                 placeholder=''
                                                                 className="form-control"
-                                                                value={this.state.langType}
-                                                                onChange={this.onChangeLangType}
+                                                                value={this.state.location}
+                                                                onChange={this.onChangeLocation}
                                                             /><p />
                                                         </div>
                                                     </div>
                                                     <div className="form-group">
-                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 '>Vehicle Type</label>
-                                                        <input textarea="text"
+                                                        <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Number of people: </label>
+                                                        <input type="text"
                                                             required
                                                             placeholder=''
                                                             className="form-control"
-                                                            value={this.state.vehicleType}
-                                                            onChange={this.onChangeVehicleType}
+                                                            value={this.state.peopleCount}
+                                                            onChange={this.onChangePeopleCount}
                                                         /><p />
                                                     </div>
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
-                                                    
-                                                    
-                                                            <div class="">
-                                                                <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 '>Price</label>
-                                                                <input textarea="text"
-                                                                    required
-                                                                    placeholder=''
-                                                                    className="form-control"
-                                                                    value={this.state.price}
-                                                                    onChange={this.onChangePrice}
-                                                                />
-                                                            </div>
-                                                      
 
-                                                   
-                                                </div><p />
-
+                                                    <div class="">
+                                                        <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Payment Rate : </label>
+                                                        <input type="text"
+                                                            required
+                                                            placeholder=''
+                                                            className="form-control"
+                                                            value={this.state.rate}
+                                                            onChange={this.onChangeRate}
+                                                        />
+                                                    </div>
+                                                    <p />
+                                                </div>
                                                 <div className="text-center align-middle form-group">
                                                     <input className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' type="submit" value="Update" />
                                                 </div>
                                             </div>
                                         </form>
-
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div >
+            </div >
         )
     }
 }
