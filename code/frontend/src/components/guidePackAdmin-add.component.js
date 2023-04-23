@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import * as Swal from "sweetalert2";
+// import * as Swal from "sweetalert2";
 import "react-datepicker/dist/react-datepicker.css"
 
 // firstName,
@@ -71,28 +71,28 @@ export default class CreateGuidePackage extends Component {
         axios.post('http://localhost:5000/api/guidepackage/add', pack)
             .then(res => {
                 console.log(res);
-                if (res.status === 200) {
-                    // this.refreshTable();
-                    this.clearData();
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Successful',
-                        text: 'Guide Package details has been Added!',
-                        background: '#fff',
-                        confirmButtonColor: '#133EFA',
-                        iconColor: '#60e004'
-                    })
+                // if (res.status === 200) {
+                //     // this.refreshTable();
+                //     this.clearData();
+                //     Swal.fire({
+                //         icon: 'success',
+                //         title: 'Successful',
+                //         text: 'Guide Package details has been Added!',
+                //         background: '#fff',
+                //         confirmButtonColor: '#133EFA',
+                //         iconColor: '#60e004'
+                //     })
 
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'There was an error adding Your Guide Package!',
-                        background: '#fff',
-                        confirmButtonColor: '#133EFA',
-                        iconColor: '#e00404'
-                    })
-                }
+                // } else {
+                //     Swal.fire({
+                //         icon: 'error',
+                //         title: 'Error',
+                //         text: 'There was an error adding Your Guide Package!',
+                //         background: '#fff',
+                //         confirmButtonColor: '#133EFA',
+                //         iconColor: '#e00404'
+                //     })
+                // }
             })
     }
 

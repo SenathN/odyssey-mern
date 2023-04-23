@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import * as Swal from "sweetalert2";
+// import * as Swal from "sweetalert2";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css"
 
@@ -108,25 +108,25 @@ export default class AdEditInquiry extends Component {
         axios.put('http://localhost:5000/api/inquiry/' + this.props.inquiryId, inquiry)
             .then(res => {
                 console.log(res);
-                if (res.status === 200) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Successful',
-                        text: 'Inquiry has been placed!',
-                        background: '#fff',
-                        confirmButtonColor: '#133EFA',
-                        iconColor: '#60e004'
-                    })
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Error in creating!',
-                        background: '#fff',
-                        confirmButtonColor: '#133EFA',
-                        iconColor: '#e00404'
-                    })
-                }
+                // if (res.status === 200) {
+                //     Swal.fire({
+                //         icon: 'success',
+                //         title: 'Successful',
+                //         text: 'Inquiry has been placed!',
+                //         background: '#fff',
+                //         confirmButtonColor: '#133EFA',
+                //         iconColor: '#60e004'
+                //     })
+                // } else {
+                //     Swal.fire({
+                //         icon: 'error',
+                //         title: 'Error',
+                //         text: 'Error in creating!',
+                //         background: '#fff',
+                //         confirmButtonColor: '#133EFA',
+                //         iconColor: '#e00404'
+                //     })
+                // }
             })
     }
 

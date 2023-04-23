@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import * as Swal from "sweetalert2";
-import DatePicker from 'react-datepicker';
+// import * as Swal from "sweetalert2";
 import "react-datepicker/dist/react-datepicker.css";
 import { Link } from 'react-router-dom';
 
@@ -13,6 +12,7 @@ export class CreateSpace extends Component {
         this.onChangeLocation = this.onChangeLocation.bind(this);
         this.onChangePeopleCount = this.onChangePeopleCount.bind(this);
         this.onChangeRate = this.onChangeRate.bind(this);
+        this.handleImgsUploads = this.handleImgsUploads.bind(this);
 
         this.onSubmit = this.onSubmit.bind(this);
         this.state = {
@@ -20,6 +20,7 @@ export class CreateSpace extends Component {
             description: '',
             location: '',
             peopleCount: '',
+            images: '',
             rate: ''
         }
     }
@@ -51,7 +52,49 @@ export class CreateSpace extends Component {
         });
     }
 
-    onSubmit(e) {
+    async handleImgsUploads(e) {
+
+        //getting images into a object
+        const imgs = [...e?.target?.files]
+        if (!imgs) return
+        console.log(imgs)
+
+        let b64files = []
+
+        // convertion to base64
+        async function getb64FileList(fileList) {
+            function getb64(file) {
+                const fileReader = new FileReader();
+                return new Promise((resolve, reject) => {
+                    fileReader.readAsDataURL(file);
+                    fileReader.onload = () => {
+                        resolve(fileReader.result);
+                    };
+                    fileReader.onerror = (error) => {
+                        reject(error);
+                    };
+                });
+            }
+
+            console.log('fileList', fileList)
+            await Promise.all(
+                fileList.map(async file =>
+                    b64files.push(await getb64(file))
+                )
+            )
+        }
+
+        getb64FileList(imgs)
+        console.log(b64files);
+
+        this.setState({
+            images: b64files
+        })
+
+        console.log(this.state.images)
+    }
+
+    async onSubmit(e) {
         e.preventDefault();
 
         const space = {
@@ -60,32 +103,35 @@ export class CreateSpace extends Component {
             location: this.state.location,
             peopleCount: this.state.peopleCount,
             rate: this.state.rate,
+            images: this.state.images
         }
         console.log(space);
-        axios.post('http://localhost:5000/api/space/add', space)
-            .then(res => {
+
+        await axios
+            .post('http://localhost:5000/api/space/add', space)
+            .then(async res => {
                 console.log(res);
-                if (res.status === 200) {
-                    this.clearData();
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Successful',
-                        text: 'Space has been placed!',
-                        background: '#fff',
-                        confirmButtonColor: '#133EFA',
-                        iconColor: '#60e004'
-                    })
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Error in creating!',
-                        background: '#fff',
-                        confirmButtonColor: '#133EFA',
-                        iconColor: '#e00404'
-                    })
-                }
-                navigator('/space')
+                // if (res.status === 200) {
+                //     // this.clearData();
+                //     Swal.fire({
+                //         icon: 'success',
+                //         title: 'Successful',
+                //         text: 'Space has been placed!',
+                //         background: '#fff',
+                //         confirmButtonColor: '#133EFA',
+                //         iconColor: '#60e004'
+                //     })
+                // } else {
+                //     Swal.fire({
+                //         icon: 'error',
+                //         title: 'Error',
+                //         text: 'Error in creating!',
+                //         background: '#fff',
+                //         confirmButtonColor: '#133EFA',
+                //         iconColor: '#e00404'
+                //     })
+                // }
+                console.log('res', res)
             })
     }
 
@@ -106,15 +152,14 @@ export class CreateSpace extends Component {
                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                         <div className='items-center overflow-hidden'>
                             <div className=''>
-                                <div class="grid grid-cols-1 gap-4 content-start pt-5 px-20">
-                                    <form className='px-12 py-12 border-2 rounded-lg shadow-md bg-gray-50' onSubmit={this.onSubmit}>
-                                        <div class="">
+                                <div className="grid grid-cols-1 gap-4 content-start pt-5 px-20">
+                                    <form className='px-12 py-12 border-2 rounded-lg shadow-md bg-gray-50' onSubmit={this.onSubmit} enctype="multipart/form-data">
+                                        <div className="">
                                             <p className='text-4xl font-semibold text-black uppercase drop-shadow-lg'>
                                                 Place an Space
                                             </p>
                                             <div className="grid grid-cols-2 gap-4 form-group">
-
-                                                <div class="">
+                                                <div className="">
                                                     <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Space Name : </label>
                                                     <input type="text"
                                                         required
@@ -124,9 +169,18 @@ export class CreateSpace extends Component {
                                                         onChange={this.onChangeName}
                                                     /><p />
                                                 </div>
+                                                <div className="">
+                                                    <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Add Images : </label>
+                                                    <input type="file"
+                                                        multiple
+                                                        placeholder=''
+                                                        className="form-control "
+                                                        onChange={this.handleImgsUploads}
+                                                    /><p />
+                                                </div>
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
-                                                <div class="">
+                                                <div className="">
                                                     <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >Description : </label>
                                                     <div>
                                                         <textarea type="text"
@@ -139,7 +193,7 @@ export class CreateSpace extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Location address: </label>
+                                                    <label htmlFor="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Location address: </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
@@ -150,26 +204,26 @@ export class CreateSpace extends Component {
                                                 </div>
                                             </div>
                                             <div className="grid grid-cols-2 gap-4 form-group">
-                                                <div class="">
+                                                <div className="">
                                                     <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black' >No. of people : </label>
                                                     <div>
                                                         <input type="number"
                                                             required
                                                             placeholder=''
                                                             className="form-control"
-                                                            value={this.state.peopleCount }
-                                                            onChange={this.onChangePeopleCount }
+                                                            value={this.state.peopleCount}
+                                                            onChange={this.onChangePeopleCount}
                                                         /><p />
                                                     </div>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label for="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Payment Rate: </label>
+                                                    <label htmlFor="large-input" className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Payment Rate: </label>
                                                     <input type="text"
                                                         required
                                                         placeholder=''
                                                         className="form-control"
-                                                        value={this.state.rate }
-                                                        onChange={this.onChangeRate }
+                                                        value={this.state.rate}
+                                                        onChange={this.onChangeRate}
                                                     /><p />
                                                 </div>
                                             </div>
@@ -180,6 +234,7 @@ export class CreateSpace extends Component {
                                                         Cancel
                                                     </button>
                                                 </Link>
+                                                {JSON.stringify(this.state.images)}
                                             </div>
                                         </div>
                                     </form>

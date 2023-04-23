@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import axios from 'axios';
-import * as Swal from "sweetalert2";
+// import * as Swal from "sweetalert2";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css"
 
@@ -20,6 +20,7 @@ export default class EditSpace extends Component {
             location: '',
             peopleCount: '',
             rate: '',
+            imagesArr: []
         }
     }
 
@@ -33,7 +34,7 @@ export default class EditSpace extends Component {
                     location: response.data.location,
                     peopleCount: response.data.peopleCount,
                     rate: response.data.rate,
-
+                    images: response.data.images
                 })
                 console.log("Mounting");
 
@@ -81,25 +82,25 @@ export default class EditSpace extends Component {
         axios.put('http://localhost:5000/api/space/' + this.props.spaceId, space)
             .then(res => {
                 console.log(res);
-                if (res.status === 200) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Successful',
-                        text: 'Space has been placed!',
-                        background: '#fff',
-                        confirmButtonColor: '#133EFA',
-                        iconColor: '#60e004'
-                    })
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Error in creating!',
-                        background: '#fff',
-                        confirmButtonColor: '#133EFA',
-                        iconColor: '#e00404'
-                    })
-                }
+                // if (res.status === 200) {
+                //     Swal.fire({
+                //         icon: 'success',
+                //         title: 'Successful',
+                //         text: 'Space has been placed!',
+                //         background: '#fff',
+                //         confirmButtonColor: '#133EFA',
+                //         iconColor: '#60e004'
+                //     })
+                // } else {
+                //     Swal.fire({
+                //         icon: 'error',
+                //         title: 'Error',
+                //         text: 'Error in creating!',
+                //         background: '#fff',
+                //         confirmButtonColor: '#133EFA',
+                //         iconColor: '#e00404'
+                //     })
+                // }
             })
     }
 
@@ -118,7 +119,7 @@ export default class EditSpace extends Component {
                                                     Update The Space
                                                 </p>
                                                 <div className="grid grid-cols-2 gap-4 form-group">
-
+                                                    {/* {JSON.stringify(this.state)} */}
                                                     <div class="">
                                                         <label className='block mb-2 text-lg font-medium text-gray-900 dark:text-black'>Space Name : </label>
                                                         <input type="text"

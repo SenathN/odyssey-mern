@@ -14,6 +14,7 @@ const createTour = async (req, res) => {
         transportMode,
         price,
         date,
+        images: { type: [String] }
     });
 
     //sending created ticket object to the database 

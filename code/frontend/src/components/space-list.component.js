@@ -9,11 +9,13 @@ import EditSpace from './space-edit.component';
 const Space = props => (
     <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
         <td className='w-10 px-2 py-2'>{props.space.name}</td>
-        <td className='px-2 py-2'>{props.space.description}</td>
+        <td className='px-2 py-2'>
+            {props.space.description}<br />
+            </td>
         <td className='px-2 py-2 '> {props.space.location}</td>
         <td className='px-2 py-2'>{props.space.peopleCount}</td>
         <td className='px-2 py-2'>{props.space.rate}</td>
-        
+
         <td className='px-2 py-2'>
             <div className="flex justify-center">
                 <div className="">
@@ -212,7 +214,7 @@ export class SpaceList extends Component {
                         <div className='items-center overflow-hidden'>
                             <div className="grid grid-cols-1 gap-4 content-start">
                                 <table>
-                                    
+
                                     <tr>
                                         <th className='drop-shadow-md'>
                                             <h3>My Spaces</h3>

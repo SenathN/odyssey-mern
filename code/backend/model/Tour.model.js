@@ -9,6 +9,7 @@ const tourpackSchema = new Schema({
     transportMode: { type: String, required: true },
     price: { type: String, required: true },
     date: { type: Date, required: true },
+    images: { type: [String] }
 }, {
     timestamps: true,
 })

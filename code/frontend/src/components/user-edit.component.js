@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import * as Swal from "sweetalert2";
+// import * as Swal from "sweetalert2";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css"
 import { Link } from 'react-router-dom';
@@ -103,28 +103,28 @@ export default class EditUser extends Component {
         axios.put('http://localhost:5000/api/user/' + this.state.id, user)
             .then(res => {
                 console.log(res);
-                if (res.status === 200) {
-                    // this.refreshTable();
-                    this.props.close();
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Successful',
-                        text: 'User details has been updated!',
-                        background: '#fff',
-                        confirmButtonColor: '#133EFA',
-                        iconColor: '#60e004'
-                    })
+                // if (res.status === 200) {
+                //     // this.refreshTable();
+                //     this.props.close();
+                //     Swal.fire({
+                //         icon: 'success',
+                //         title: 'Successful',
+                //         text: 'User details has been updated!',
+                //         background: '#fff',
+                //         confirmButtonColor: '#133EFA',
+                //         iconColor: '#60e004'
+                //     })
 
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'There was an error updating Your User!',
-                        background: '#fff',
-                        confirmButtonColor: '#133EFA',
-                        iconColor: '#e00404'
-                    })
-                }
+                // } else {
+                //     Swal.fire({
+                //         icon: 'error',
+                //         title: 'Error',
+                //         text: 'There was an error updating Your User!',
+                //         background: '#fff',
+                //         confirmButtonColor: '#133EFA',
+                //         iconColor: '#e00404'
+                //     })
+                // }
             })
     }
     render() {

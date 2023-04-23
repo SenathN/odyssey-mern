@@ -1,4 +1,6 @@
 import React from 'react';
+
+// require('dotenv').config()
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -56,6 +58,7 @@ function App() {
               <Route path='spaces' element={<SpaceList />} />
               <Route path="spaceProvider" element={<SpaceProviderList />} />
             </Route>
+            
             <Route exact path="/createTicket" element={<CreateTicket />} />
             <Route exact path="/ticket" element={<TicketList />} />
 

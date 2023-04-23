@@ -1,21 +1,60 @@
 const Space = require('../model/space.model');
+const cloudinary = require('cloudinary').v2
+const uuid = require('uuid').v4
+
+// Configuration 
+cloudinary.config({
+    cloud_name: "dsv6hvwxa",
+    api_key: "625585731364648",
+    api_secret: "fd1IcQjwOn7OzJfdnXBPrIk6MDc"
+});
 
 //Create new space pack 
 const createSpace = async (req, res) => {
-    //catching data from front end to these attributes
-    const { name, description, location, peopleCount, rate } = req.body;
 
+    async function uploadToCloudinary(fileList) {
+        const imgIdArray = await Promise.all(
+            fileList.map(file => {
+                return new Promise((resolve, reject) => {
+                    const randId = uuid()
+                    cloudinary.uploader.upload(file, { public_id: randId })
+                        .then(dat => {
+                            console.log('uploaded', randId)
+                            resolve(dat.public_id)
+                        })
+                        .catch(e => { reject(e) })
+                })
+            })
+        )
+        return imgIdArray
+    }
+
+    //catching data from front end to these attributes
+    if (!req.body) return
+    const { name, description, location, peopleCount, rate, images } = req.body;
+    let CloudImgArr
+    try {
+        CloudImgArr = await uploadToCloudinary(images)
+    } catch (error) {
+        console.log('error', error)
+    }
+
+    console.log('CloudImgArr', CloudImgArr)
+    console.log('done')
+    
     //create a object to store saved data to save in the mongo db database
     const space = new Space({
-        name, 
-        description, 
-        location, 
-        peopleCount, 
-        rate
+        name,
+        description,
+        location,
+        peopleCount,
+        rate,
+        images: CloudImgArr
     });
+    console.log(space)
 
-    //sending created space pack object to the database 
-    await space.save()
+    //sending created space pack object to the database
+    space.save()
         .then(() => res.json('Space has been created.'))
         .catch(err => res.status(400).json('Error : ' + err));
 };
@@ -49,6 +88,7 @@ const getSpace = async (req, res) => {
         res.json(space)
     } catch (error) {
         res.status(500).send("Server Error : " + error);
+        await fetch()
     }
 }
 
@@ -61,7 +101,8 @@ const updateSpace = async (req, res) => {
             exsistingSpace.location = req.body.location;
             exsistingSpace.peopleCount = req.body.peopleCount;
             exsistingSpace.rate = req.body.rate;
-            
+            exsistingSpace.imgsBase64 = req.body.imgsBase64;
+
             exsistingSpace.save()
                 .then((updatedSpace) => res.json(updatedSpace))
                 .catch((error) => res.status(400).json("Error: " + error));

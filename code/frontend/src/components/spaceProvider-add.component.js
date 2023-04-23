@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import * as Swal from "sweetalert2";
+// import * as Swal from "sweetalert2";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -55,11 +55,9 @@ export class CreateSpaceProvider extends Component {
         });
     }
     onChangeAddress(e) {
-
         this.setState({
             address: e.target.value,
         });
-
     }
 
     onChangeNIC(e) {
@@ -74,10 +72,9 @@ export class CreateSpaceProvider extends Component {
         });
     }
 
-
-
     onSubmit(e) {
         e.preventDefault();
+
         const spaceProvider = {
             username: this.state.username,
             email: this.state.email,
@@ -92,26 +89,26 @@ export class CreateSpaceProvider extends Component {
         axios.post('http://localhost:5000/api/spaceProvider/add', spaceProvider)
             .then(res => {
                 console.log(res);
-                if (res.status === 200) {
-                    this.clearData();
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Successful',
-                        text: 'SpaceProvider has been created!!',
-                        background: '#fff',
-                        confirmButtonColor: '#133EFA',
-                        iconColor: '#60e004'
-                    })
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Error in creating!',
-                        background: '#fff',
-                        confirmButtonColor: '#133EFA',
-                        iconColor: '#e00404'
-                    })
-                }
+                // if (res.status === 200) {
+                //     this.clearData();
+                //     Swal.fire({
+                //         icon: 'success',
+                //         title: 'Successful',
+                //         text: 'SpaceProvider has been created!!',
+                //         background: '#fff',
+                //         confirmButtonColor: '#133EFA',
+                //         iconColor: '#60e004'
+                //     })
+                // } else {
+                //     Swal.fire({
+                //         icon: 'error',
+                //         title: 'Error',
+                //         text: 'Error in creating!',
+                //         background: '#fff',
+                //         confirmButtonColor: '#133EFA',
+                //         iconColor: '#e00404'
+                //     })
+                // }
             })
     }
 
@@ -148,7 +145,7 @@ export class CreateSpaceProvider extends Component {
                                                         required
                                                         placeholder=''
                                                         className="form-control "
-                                                        title = 'Enter a name atleast 3 characters long'
+                                                        title='Enter a name atleast 3 characters long'
                                                         value={this.state.username}
                                                         onChange={this.onChangeUsername}
                                                     /><br />

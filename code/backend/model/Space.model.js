@@ -7,6 +7,7 @@ const SpaceSchema = new Schema({
     location: { type: String, required: true },
     peopleCount: { type: String, required: true },
     rate: { type: String, required: true },
+    images: { type: [String] }
 }, {
     timestamps: true,
 })

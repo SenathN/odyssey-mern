@@ -1,11 +1,21 @@
 const express = require('express');
 const cors = require('cors');
-const app = express();
-app.use(cors()); //cors origin
-app.use(express.json());
+require('dotenv').config()
+
+const corsOptions = require('./config/corsOptions');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 // mongoose.set('strictQuery', false); 
 const port = process.env.PORT || 5000
+
+const app = express();
+// app.use(express.json());
+app.use(cors(corsOptions)); //cors origin
+
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
+app.use(bodyParser.json({limit: "50mb"}));
+// app.use(express.json({limit: "50mb"}));
+// app.use(express.urlencoded({limit: "50mb", extended: true}));
 
 app.get('/', (req, res) => {
   res.send('ITP Backend API Running');
@@ -15,8 +25,10 @@ connectMongoDB().then(() => console.log("MongoDB connected")).catch(err => conso
 
 async function connectMongoDB() {
   // await mongoose.connect('mongodb+srv://ITPDB:ITPDB@cluster0.zbkw8pu.mongodb.net/?retryWrites=true&w=majority');
-  await mongoose.connect('mongodb+srv://sen:sinister177demon@cluster0.kelle48.mongodb.net/OddyseyDB?retryWrites=true&w=majority');
+  await mongoose.connect(process.env.MONGO_DB_URI);
 }
+
+app.use('/uploads', express.static("uploads"))
 
 app.use('/api/ticket', require('./route/ticket.route'));
 app.use('/api/tour', require('./route/tour.route'));

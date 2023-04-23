@@ -1,6 +1,32 @@
 const express = require("express");
 const router = express.Router();
 
+// // multer config 
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, path.join(__dirname, '/uploads'))
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, uuid() + file.originalname)
+//     }
+// })
+
+// const fileFilter = (req, file, cb) => {
+//     if (/jpeg|jpg|png/.test(file.mimetype)/*=== 'image/jpg' || file.mimetype === 'image/png'*/) {
+//         cb(null, true)
+//     } else {
+//         cb(null, false)
+//     }
+// }
+
+// const upload = multer({
+//     storage: storage,
+//     limits: {
+//         fieldSize: 1024 * 1024 * 20
+//     },
+//     fileFilter: fileFilter
+// })
+
 const {
     createSpace,
     deleteSpace,
